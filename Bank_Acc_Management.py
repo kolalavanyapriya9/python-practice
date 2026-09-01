@@ -19,12 +19,20 @@ def withdraw(amount):
         print("REmaining balance:",balance)
     else:
         print("Insufficient balance")
+def show_transactions():
+    print("\nTransaction History:")
+    if len(transactions)==0:
+        print("No transactions yet.")
+    else:
+        for transaction in transactions:
+            print(transaction)
 while True:
     print("\n.......BANK MENU.......")
     print("1.Check Balance")
     print("2.Deposit")
     print("3.Withdraw")
-    print("4.Exit")
+    print("4.Transaction History")
+    print("5.Exit")
     choice=input("Enter your choice:")
     if choice=="1":
         check_balance()
@@ -41,7 +49,9 @@ while True:
         else:
             print("enter valid amount")
     elif choice=="4":
-        print("Thank you for using our banking systam.")
+        show_transactions()
+    elif choice=="5":
+        print("Thank you for using our banking system.")
         break
     else:
         print("Invalid choice.Please Try again.")
