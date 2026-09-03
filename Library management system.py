@@ -52,8 +52,27 @@ class Employee():
 
 l=Library()
 while True:
+    print("1. Create employee account\n2. Login\n3. Exit")
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+        e_id = int(input("Enter employee ID: "))
+        e_name = input("Enter employee name: ")
+        e = Employee(e_id, e_name)
+        l.Create_Act(e)
+    elif choice == 2:
+        e_id = int(input("Enter employee ID: "))
+        if e_id in l.Employee:
+            print(f"Welcome {l.Employee[e_id].e_name}!")
+            break
+        else:
+            print("Employee ID not found. Please create an account first.")
+    elif choice == 3:
+        print("Exiting the program.")
+        exit()
+
+while True:
     print("1.add_books\n2.view_books\n3.add_students\n4.view_Students\n5.create account")
-    n=int(input())
+    n=int(input("Enter your option:"))
     if n==1:
         b_id=int(input("b_id:"))
         name=input("book name:")
